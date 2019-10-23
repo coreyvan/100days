@@ -8,3 +8,12 @@
 
 **Links:**
 * [README](https://github.com/coreyvan/100days/blob/master/README.md)
+
+## R1D2: October 23 Wednesday
+
+**Work:** Found mock data sets to use later to ingest into elasticsearch. Wrote go small go app to pull from s3 with AWS Go SDK
+
+**Feelings:** Slightly frustrated with the documentation for AWS SDK but glad to get something working that didn't hang my machine :)
+
+**Links:**
+* [main.go](https://github.com/coreyvan/100days/blob/master/main.go)
