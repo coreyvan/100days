@@ -1,0 +1,9 @@
+version: '3'
+services:
+  elasticsearch:
+    image: elasticsearch-100:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kibana:
+    image: kibana-100:latest

@@ -17,3 +17,12 @@
 
 **Links:**
 * [main.go](https://github.com/coreyvan/100days/blob/master/main.go)
+
+## R1D3: October 24 Thursday
+
+**Work:** Research configuring es and kibana and how to write docker compose. Wrote basic config files
+
+**Feelings:** Struggling with all the config for these services but making progress
+
+**Links:**
+* [elasticsearch config](https://github.com/coreyvan/100days/blob/master/elasticsearch)

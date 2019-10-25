@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
@@ -13,6 +14,18 @@ import (
 )
 
 func main() {
+	// should usually be "cse-cic-ids2018"
+	bucket := os.Args[1]
+	// should usually be "Processed Traffic Data for ML Algorithms/Friday-02-03-2018_TrafficForML_CICFlowMeter.csv"
+	key := os.Args[2]
+	//64KB is a reasonable amount
+	kbs, err := strconv.Atoi(os.Args[3])
+	if err != nil {
+		log.Fatal("kb arg should be an integer", err)
+	}
+	bytes := kbs * 1024
+	fileName := os.Args[4]
+
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String("ca-central-1"),
 		Credentials: credentials.NewSharedCredentials("", "personal"),
@@ -28,7 +41,7 @@ func main() {
 
 	// downloader := s3manager.NewDownloader(sess)
 
-	file, err := os.Create("data.csv")
+	file, err := os.Create(fileName)
 	if err != nil {
 		log.Fatal("could not open file", err)
 	}
@@ -51,9 +64,9 @@ func main() {
 	})
 
 	numBytes, err := downloader.Download(file, &s3.GetObjectInput{
-		Bucket: aws.String("cse-cic-ids2018"),
-		Key:    aws.String("Processed Traffic Data for ML Algorithms/Friday-02-03-2018_TrafficForML_CICFlowMeter.csv"),
-		Range:  aws.String("bytes=0-65536"),
+		Bucket: aws.String(bucket),
+		Key:    aws.String(key),
+		Range:  aws.String(fmt.Sprintf("bytes=0-%d", bytes)),
 	})
 	if err != nil {
 		log.Fatal("could not download file", err)

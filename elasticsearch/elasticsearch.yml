@@ -1,0 +1,5 @@
+cluster.name: ${ES_CLUSTER_NAME}
+network.host: '0.0.0.0'
+discovery.type: 'single-node'
+path.logs: /var/log/elasticsearch
+xpack.security.enabled: true
