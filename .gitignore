@@ -1,4 +1,8 @@
+*
+!*.*
+!/*
 .terraform/
 *.csv
 *.tfstate*
 100days
+*.sh
