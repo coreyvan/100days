@@ -5,5 +5,10 @@ require (
 	github.com/elastic/go-elasticsearch v0.0.0
 	github.com/elastic/go-elasticsearch/v7 v7.4.1
 	github.com/pkg/errors v0.8.1
-	golang.org/x/net v0.0.0-20191021144547-ec77196f6094 // indirect
+)
+
+require (
+	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af // indirect
+	github.com/stretchr/testify v1.8.1 // indirect
+	golang.org/x/net v0.7.0 // indirect
 )
